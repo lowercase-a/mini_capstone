@@ -6,13 +6,20 @@ class Api::ProductsController < ApplicationController
 
   def create
     @product = Product.new(
-                           name: params[:name],
-                           price: params[:price],
-                           description: params[:description],
-                           image_url: params[:image_url]
-                          )
-    @product.save
-    render 'show.json.jbuilder'
+      name: params[:name],
+      price: params[:price],
+      description: params[:description],
+      image_url: params[:image_url]
+    )
+    if @product.save
+      # if the user enters 'correct' information
+      # data gets saved in db
+      render 'show.json.jbuilder'
+    else
+      # if the user enters bad information
+      # data does not get saved in db
+      render 'errors.json.jbuilder', status: :unprocessible_entity
+    end
   end
 
   def show
