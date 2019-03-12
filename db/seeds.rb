@@ -64,11 +64,16 @@ product1 = Product.new(name: "toothpaste")
 
 
 
+# products = Product.all
 
+# products.each do |product|
+#   # assign it a new supplier_id
+#   supplier_id = Supplier.all.sample.id
+#   product.supplier_id = supplier_id
+#   product.save
+# end
 
-
-
-
+# Product.destroy_all(supplier_id: rand(1..2))
 
 
 
