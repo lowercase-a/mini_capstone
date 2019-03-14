@@ -76,7 +76,17 @@ product1 = Product.new(name: "toothpaste")
 # Product.destroy_all(supplier_id: rand(1..2))
 
 
+# add new images, and associate them with products
 
+# products = Product.all
+
+# products.each do |product|
+  # p product
+  # Image.create!(
+  #   url: product.image_url,
+  #   product_id: product.id
+  # )
+# end
 
 
 

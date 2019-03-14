@@ -22,7 +22,7 @@ class Api::ProductsController < ApplicationController
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      image_url: params[:image_url]
+      supplier_id: params[:supplier_id]
     )
     if @product.save
       # if the user enters 'correct' information
@@ -36,6 +36,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def show
+    p current_user
     @product = Product.find(params[:id])
     render 'show.json.jbuilder'
   end
@@ -46,7 +47,6 @@ class Api::ProductsController < ApplicationController
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
     @product.description = params[:description] || @product.description
-    @product.image_url = params[:image_url] || @product.image_url
 
     if @product.save
       render 'show.json.jbuilder'
