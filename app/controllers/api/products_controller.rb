@@ -5,7 +5,6 @@ class Api::ProductsController < ApplicationController
     else
       @products = Product.all
     end
-
     if params[:discount] == "true"
       # do a thing
       @products = @products.where("price < ?", 100)
