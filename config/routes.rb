@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get '/products/new' => 'products#new'
   post '/products' => 'products#create'
+
+
   namespace :api do
     get "/products" => 'products#index'
     post "/products" => 'products#create'
