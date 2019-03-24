@@ -1,0 +1,24 @@
+<h1>Products#new</h1>
+<p>Find me in app/views/products/new.html.erb</p>
+
+<form action="/products" method="post">
+  <p>name: <input type="text" name="name" value="phone"></p>
+  <p>price: <input type="text" name="price" value="20"></p>
+  <p>description: <input type="text" name="description" value="old phone that doesn't work anymore"></p>
+  <!-- <p>supplier_id: <input type="text" name="supplier_id" value="1"></p> -->
+<!--   <select name="supplier_id">
+    <option value="1">Amazon</option>
+    <option value="2">Best Buy</option>
+    <option value="3">Jet</option>
+  </select>
+ -->
+  <select name="supplier_id">
+    <% @suppliers.each do |supplier| %>
+      <option value="<%= supplier.id %>"><%= supplier.name %></option>
+    <% end %>
+  </select>
+
+  <p>Image: <input type="text" name="image" value="https://images.pexels.com/photos/162140/duckling-birds-yellow-fluffy-162140.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></p>
+
+  <p><input type="submit" value="Make a new product"></p>
+</form>
